@@ -1,0 +1,44 @@
+@mixin animationMixin($name, $duration, $timing, $delay) {
+    animation: $name $duration $timing, $delay;
+    animation-iteration-count: infinite;
+
+}
+@mixin buildBall ($color) {
+    width: 50px;
+    height: 50px;
+    background-color: $color;
+    border-radius: 50%;
+    border: thin solid black;
+}
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+@keyframes slidein {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(500px);
+    }
+
+    0% {
+        transform: translateX(0px);
+    }
+}
+
+.ball1 {
+    @include buildBall(yellow);
+    @include animationMixin(slidein, 10s , linear, 0s);
+}
+.ball2 {
+    @include buildBall(green);
+    @include animationMixin(slidein, 7s , linear, 1s);
+}
+.ball3 {
+    @include buildBall(red);
+    @include animationMixin(slidein, 5s , linear, 1s);
+}
